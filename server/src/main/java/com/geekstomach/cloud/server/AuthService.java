@@ -41,10 +41,11 @@ public class AuthService {
         }
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+/*    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         AuthService authService = new AuthService();
         authService.connect();
         System.out.println(authService.getNickByLoginAndPass("login", "password"));
         System.out.println(authService.getNickByLoginAndPass("admin", "admin"));
-    }
+        authService.disconnect();
+    }*/
 }

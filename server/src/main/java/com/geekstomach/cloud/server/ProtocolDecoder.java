@@ -9,9 +9,18 @@ import java.sql.SQLOutput;
 import java.util.List;
 
 public class ProtocolDecoder extends ByteToMessageDecoder {
+    private AuthService authService;
+    private AuthService getAuthService(){
+        return authService;
+    }
+
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> list) throws Exception {
         if (in.readByte()== Command.AUTH){
+
+            authService = new AuthService();
+            authService.connect();
+
             System.out.println("Проверяем что-то в базе данных и авторизируется и возможо отправляем статус AUTH_OK");
             //ByteBuf loginLength = in.readBytes(4);
             int loginLength = in.readInt();//получаем длину логина в байтах
@@ -29,6 +38,8 @@ public class ProtocolDecoder extends ByteToMessageDecoder {
             String password = new String(passwordBytes);
             System.out.println("Получаем пароль : " + password);
             System.out.println("Login: " + login + " Password :" + password);
+            System.out.println( "Nickname :"+ getAuthService().getNickByLoginAndPass(login, password));
+            authService.disconnect();
         }
 
     }
