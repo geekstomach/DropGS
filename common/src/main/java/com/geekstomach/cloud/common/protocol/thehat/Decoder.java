@@ -1,5 +1,6 @@
-package com.geekstomach.cloud.common.protocol;
+package com.geekstomach.cloud.common.protocol.thehat;
 
+import com.geekstomach.cloud.common.protocol.Command;
 import io.netty.buffer.ByteBufUtil;
 
 import java.sql.SQLOutput;

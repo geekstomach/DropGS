@@ -2,11 +2,10 @@ package com.geekstomach.cloud.client;
 
 import java.io.DataOutputStream;
 import java.net.Socket;
-import java.util.Scanner;
 
 
 import com.geekstomach.cloud.common.protocol.Command;
-import com.geekstomach.cloud.common.protocol.Decoder;
+
 //этот сработал
 public class ProtocolClient {
     public static void main(String[] args) {
