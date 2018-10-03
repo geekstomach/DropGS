@@ -1,0 +1,1 @@
+Что именно происходит в конструкции this.getClass().getResourceAsStream("/server.properties")) ?

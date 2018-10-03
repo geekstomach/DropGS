@@ -1,0 +1,18 @@
++) Все что касается файлов свойств и прочего
+    https://habr.com/post/194658/
+    https://javadevblog.com/primer-raboty-s-properties-v-java.html
+
++)Пример реализации протокола
+    https://github.com/blynkkk/blynk-server/tree/master/server/core/src/main/java/cc/blynk/server/core/protocol
+
++)Netty wiki
+https://netty.io/wiki/user-guide-for-4.x.html
+
++)Доп.инфо про Netty
+Топ 6 оптимизаций для netty
+https://habr.com/post/277695/
+IoT cloud на Netty или 10к рек-сек на ядро
+https://habr.com/post/268895/
+
++)Сравнение Java библиотек для сериализации
+http://gs-studio.com/news-about-it/30020--java---

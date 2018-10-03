@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="300.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.geekstomach.cloud.client.UI.LoginController">
+
+      <JFXTextField fx:id="username" layoutX="60.0" layoutY="140.0" prefHeight="40.0" prefWidth="210.0" promptText="Username" styleClass="text-field" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="30.0"/>
+
+      <JFXPasswordField fx:id="password" layoutX="60.0" layoutY="200.0" prefHeight="40.0" prefWidth="210.0" promptText="Password" styleClass="text-field" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="30.0"/>
+
+      <JFXButton fx:id="loginButton" layoutX="30.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="50.0" prefWidth="111.0" styleClass="button" text="Login" textAlignment="CENTER" wrapText="true"/>
+
+      <JFXButton fx:id="cancelButton" cancelButton="true" layoutX="159.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="50.0" prefWidth="111.0" styleClass="button"  text="Cancel" />
+
+      <FontAwesomeIconView glyphName="KEY" layoutX="13.0" layoutY="227.0" size="40" styleClass="glyph-icon" />
+      <FontAwesomeIconView glyphName="LOCK" layoutX="130.0" layoutY="83.0" size="60" styleClass="glyph-icon" />
+      <FontAwesomeIconView glyphName="USER" layoutX="17.0" layoutY="170.0" size="40" styleClass="glyph-icon" />
+
+</AnchorPane>

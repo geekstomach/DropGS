@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="MainWindow"
+            prefHeight="400.0" prefWidth="600.0">
+
+</AnchorPane>
+
+
+
+/*   Вариант 1:     Parent root2 = FXMLLoader.load(Main.class.getResource("C:\\Users\\XE\\Google Диск\\GeekBrains\\Stomachcloud\\client\\src\\main\\resources\\auth.fxml"));
+        root2.setVisible(false);*/
+
+ /*  Вариант 2:     Stage stage = new Stage();
+        Stage stage2 = new Stage();
+        mainWindow mw = new mainWindow();
+        try {
+            mw.start(stage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    Вариант 3:  Parent root = FXMLLoader.load(mainWindow.class.getResource("mainWindow.fxml"));
+        Parent root2 = FXMLLoader.load(Main.class.getResource("auth.fxml"));
+        stage2.setScene(new Scene(root2));
+        stage2.close();
+        stage.setScene(new Scene(root));
+        stage.setTitle("mainWindow");
+        stage.show();*/
+        //Например при неверном логине
+     /*   loginTitle.setText(username.getText());
+        loginTitle.setStyle("-fx-background-color: #d32f2f; -fx-text-fill: white");*/
+
+
+
+Полезная ссылочка на то какой должен быть интерфейс и какой не должен быть.
+https://stackoverflow.com/questions/9554636/the-use-of-multiple-jframes-good-or-bad-practice
