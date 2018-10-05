@@ -30,13 +30,11 @@
     <index id="11" parent="6" name="sqlite_autoindex_Users_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>login</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="12" parent="6" name="sqlite_autoindex_Users_2">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>nick</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="13" parent="6">

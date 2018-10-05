@@ -1,6 +1,7 @@
 package com.geekstomach.cloud.server;
 
 
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -9,10 +10,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.serialization.ClassResolvers;
-import io.netty.handler.codec.serialization.ObjectDecoder;
-import io.netty.handler.codec.serialization.ObjectEncoder;
-import io.netty.handler.logging.LoggingHandler;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -29,7 +26,7 @@ public class Server {
     private int propMaxObjSize = 1024 * 1024 * 100;//10mb зачем мы инициализируем эти переменные если они читаются из файла свойств?
     */
     private static int propPort;
-    private static int propMaxObjSize;//пока не используется
+
 
     public Server(){
     }
@@ -69,11 +66,10 @@ public class Server {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(
-                                   // new ServerHandler());
-                                    new ProtocolDecoder());
+                                    new ServerHandler());
+                                    //new ProtocolDecoder());
                                     //Из набора байтов преобразуем в объект (оба класса нужны для сериализации)
                                     //new ObjectDecoder(propMaxObjSize, ClassResolvers.cacheDisabled(null)),
-                                    //new ObjectEncoder());
                                    // new AuthGatewayHandler());
                         }
                     })
@@ -130,7 +126,6 @@ public class Server {
             pr.load(in);
             //присваиваем переменным параметры из файла
             propPort = Integer.parseInt(pr.getProperty("port"));
-            propMaxObjSize = Integer.parseInt(pr.getProperty("max_obj_size"));
         } catch (IOException e) {
             System.err.println("Error: Property file does not exist");
         }

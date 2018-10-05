@@ -1,17 +1,26 @@
-package com.geekstomach.cloud.client.nettyClient;
+package com.geekstomach.cloud.client.utils;
 
 import com.geekstomach.cloud.common.protocol.Command;
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToByteEncoder;
 
-public class ProtocolEncoder extends MessageToByteEncoder {
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
 
-    public ProtocolEncoder() {
+public class AuthHandler {
+
+
+    Socket socket;
+    DataOutputStream out;
+
+    public AuthHandler(Socket socket,DataOutputStream out) {
+        this.socket = socket;
+        this.out = out;
     }
 
-    @Override
-    protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
+    public void tryAuth() throws IOException {
+        out.writeByte(Command.START_MSG);
+        System.out.println("Открываем оутпутстрим");
+        System.out.println("Записываем его в поток");
         out.writeByte(Command.AUTH);
         System.out.println("Отправляем команду Command.AUTH " + Command.AUTH);
         String login = "admin";
@@ -19,15 +28,16 @@ public class ProtocolEncoder extends MessageToByteEncoder {
         out.writeInt(login.length());
         System.out.println("Отправляем длину логина");
         byte[] loginBytes = login.getBytes();//конвертируем строку в байтовый массив
-        out.writeBytes(loginBytes);
+        out.write(loginBytes);
         System.out.println("Отправляем логин");
         out.writeInt(password.length());
         System.out.println("Отправляем длину пароля");
         byte[] passwordBytes = password.getBytes();
-        out.writeBytes(passwordBytes);
+        out.write(passwordBytes);
         System.out.println("Отправляем пароль");
-        //ctx.writeAndFlush(out);
-
-
+        out.flush();
+        System.out.println("Флашим");
+        //out.close();
+        System.out.println("Закрываем");
     }
 }

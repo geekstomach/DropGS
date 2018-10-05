@@ -2,7 +2,7 @@ package com.geekstomach.cloud.common.protocol;
 
 public final class Command {
 
-    public static final short START_MSG = 0;
+    public static final byte START_MSG = 0;
     public static final short FINISH_MSG = 1;
     public static final byte AUTH = 2;
     public static final short AUTH_OK = 3;//надо попытаться возващать статусы отдельным перечислением наверно
@@ -13,7 +13,7 @@ public final class Command {
     public static final short RESPONSE = 8;
     public static final short REGISTER = 9;
 //handel files
-public static final short FILE_UPLOAD = 10;
+public static final byte FILE_UPLOAD = 10;
     public static final short FILE_DOWNLOAD = 11;
     public static final short FILE_GET_LIST = 12;
     public static final short FILE_DELETE_FILE = 13;
