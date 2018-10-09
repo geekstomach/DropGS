@@ -66,8 +66,8 @@ public class Server {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(
-                                    new ServerHandler());
-                                    //new ProtocolDecoder());
+                                   // new ServerHandler());
+                                    new ProtocolDecoder());
                                     //Из набора байтов преобразуем в объект (оба класса нужны для сериализации)
                                     //new ObjectDecoder(propMaxObjSize, ClassResolvers.cacheDisabled(null)),
                                    // new AuthGatewayHandler());
@@ -83,7 +83,9 @@ public class Server {
             В класс верхнего уровня.
 */
                   //  .option(ChannelOption.SO_BACKLOG, 128)
+                    //.option(ChannelOption.AUTO_READ,true)
 /*
+
             Можно также установить параметры, которые являются определенными для реализации канала.
             Мы пишем сервер TCP / IP, поэтому нам разрешено устанавливать параметры сокетов, такие
             как tcpNoDelay, и поддерживать их. Пожалуйста, обратитесь к опции apidocs of Channel
@@ -132,7 +134,7 @@ public class Server {
     }
 
     public static void main(String[] args) throws Exception {
-        BasicConfigurator.configure();
+        BasicConfigurator.configure();//надо что-то делать с логгером
         new Server().run();
     }
 }

@@ -1,6 +1,6 @@
 package com.geekstomach.cloud.client.UI;
 
-import com.geekstomach.cloud.client.Client;
+import com.geekstomach.cloud.client.utils.Client;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;

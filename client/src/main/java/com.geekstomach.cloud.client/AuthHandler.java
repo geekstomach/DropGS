@@ -1,4 +1,4 @@
-package com.geekstomach.cloud.client.utils;
+package com.geekstomach.cloud.client;
 
 import com.geekstomach.cloud.common.protocol.Command;
 

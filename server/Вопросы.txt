@@ -1,1 +1,1 @@
-Что именно происходит в конструкции this.getClass().getResourceAsStream("/server.properties")) ?
+В какой момент лучше коннектиться к базе данных?

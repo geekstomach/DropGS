@@ -1,4 +1,4 @@
-package com.geekstomach.cloud.server;
+package com.geekstomach.cloud.server.DB;
 
 import org.sqlite.JDBC;
 
@@ -8,6 +8,9 @@ public class AuthService {
     private Connection connection;
     private Statement statement;
     String path = "jdbc:sqlite:server\\src\\main\\resources\\UsersDB.db";
+
+    public AuthService(byte[] data) {
+    }
 
     // --------ПОДКЛЮЧЕНИЕ К БАЗЕ ДАННЫХ--------
     public void connect() throws ClassNotFoundException, SQLException {

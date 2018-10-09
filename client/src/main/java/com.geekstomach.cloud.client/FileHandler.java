@@ -29,15 +29,15 @@ public class FileHandler {
         byte[] data = Files.readAllBytes(filelocation);
         ByteBuffer in = ByteBuffer.wrap(data);
         int dataLength = data.length;
-
         out.writeByte(Command.START_MSG);
         System.out.println("Отправляем команду START_MSG " + Command.START_MSG);
         out.writeByte(Command.FILE_UPLOAD);
         System.out.println("Отправляем команду FILE_UPLOAD " + Command.FILE_UPLOAD);
         out.writeInt(dataLength); //как узнать длину файла?
         System.out.println("Отправляем длину файла " + dataLength);
-
-        byte [] buffer = new byte[1024];
+        out.write(data);
+/*
+        byte [] buffer = new byte[1018];
         int n = 0;
         int write = 0;
         int totalWrite = 0;
@@ -67,7 +67,8 @@ public class FileHandler {
                     System.out.println("Отправляем пакет " + n);
         }
        // out.writeByte(Command.FINISH_MSG);
-        //out.close();
+       */
+        out.close();
         fileInput.close();
     }
     private void showBuffer(byte[] buffer){

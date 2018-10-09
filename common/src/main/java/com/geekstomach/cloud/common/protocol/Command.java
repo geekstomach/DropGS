@@ -2,7 +2,7 @@ package com.geekstomach.cloud.common.protocol;
 
 public final class Command {
 
-    public static final byte START_MSG = 0;
+    public static final byte START_MSG = 100;
     public static final short FINISH_MSG = 1;
     public static final byte AUTH = 2;
     public static final short AUTH_OK = 3;//надо попытаться возващать статусы отдельным перечислением наверно
