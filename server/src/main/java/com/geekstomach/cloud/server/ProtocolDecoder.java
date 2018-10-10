@@ -32,7 +32,7 @@ public class ProtocolDecoder extends ByteToMessageDecoder {
             System.out.println("Заполняем массив байтами из буфера");
 
             switch (command) {
-//                case Command.REG: new AuthService();
+//                case Command.REG: new DBService();
                 case Command.AUTH:
                     outToNextHandler.add(new AuthHandler(data));
                     break;

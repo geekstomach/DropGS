@@ -1,3 +1,4 @@
+/*
 package com.geekstomach.cloud.server;
 
 import com.geekstomach.cloud.common.protocol.Command;
@@ -20,3 +21,5 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         super.exceptionCaught(ctx, cause);
     }
 }
+*/
+

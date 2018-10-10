@@ -15,56 +15,65 @@
     <table id="7" parent="2" name="sqlite_master">
       <System>1</System>
     </table>
-    <column id="8" parent="6" name="login">
+    <table id="8" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <column id="9" parent="6" name="ID">
       <Position>1</Position>
-      <DataType>STRING|0s</DataType>
-    </column>
-    <column id="9" parent="6" name="password">
-      <Position>2</Position>
-      <DataType>STRING|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="10" parent="6" name="nick">
+      <Position>2</Position>
+      <DataType>STRING|0s</DataType>
+    </column>
+    <column id="11" parent="6" name="login">
       <Position>3</Position>
       <DataType>STRING|0s</DataType>
     </column>
-    <index id="11" parent="6" name="sqlite_autoindex_Users_1">
+    <column id="12" parent="6" name="password">
+      <Position>4</Position>
+      <DataType>STRING|0s</DataType>
+    </column>
+    <index id="13" parent="6" name="sqlite_autoindex_Users_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>login</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="12" parent="6" name="sqlite_autoindex_Users_2">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>nick</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="13" parent="6">
-      <ColNames>login</ColNames>
+    <key id="14" parent="6">
+      <ColNames>ID</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="15" parent="6">
+      <ColNames>login</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_Users_1</UnderlyingIndexName>
     </key>
-    <key id="14" parent="6">
-      <ColNames>nick</ColNames>
-      <UnderlyingIndexName>sqlite_autoindex_Users_2</UnderlyingIndexName>
-    </key>
-    <column id="15" parent="7" name="type">
+    <column id="16" parent="7" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="16" parent="7" name="name">
+    <column id="17" parent="7" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="17" parent="7" name="tbl_name">
+    <column id="18" parent="7" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="18" parent="7" name="rootpage">
+    <column id="19" parent="7" name="rootpage">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="19" parent="7" name="sql">
+    <column id="20" parent="7" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
+    </column>
+    <column id="21" parent="8" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="22" parent="8" name="seq">
+      <Position>2</Position>
     </column>
   </database-model>
 </dataSource>

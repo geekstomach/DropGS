@@ -76,7 +76,7 @@ saveFile(in);
         String path = "server\\repository\\WTF.txt";
         FileOutputStream fileOut = new FileOutputStream(path);
         System.out.println("Открываем FileOutputStream");
-        byte[] buffer = new byte[1018];
+        byte[] buffer = new byte[1024];
         int n = 0;
         int dataLength = in.readInt();//15
         System.out.println("Длина файла в байтах "+dataLength);

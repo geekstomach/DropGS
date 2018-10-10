@@ -11,13 +11,14 @@ public class ProtocolClient {
         try {
             Socket socket = new Socket("localhost", 8326);
             System.out.println("Соединение установленно "+ socket.isConnected());
-            FileHandler  fileHandler = new FileHandler(socket);
+            FileHandlerClient fileHandlerClient = new FileHandlerClient(socket);
 
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
            // AuthHandler authHandler = new AuthHandler(socket,out);
 
             System.out.println("Открываем OutputStream");
-            fileHandler.sendFile("client\\local_storage\\WTF1.txt",out);
+            fileHandlerClient.sendFile("client\\local_storage\\Scan_20180829_115054.pdf",out);
+
             //authHandler.tryAuth();
             socket.close();
             out.close();

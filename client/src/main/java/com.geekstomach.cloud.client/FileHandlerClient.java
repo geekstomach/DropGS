@@ -11,11 +11,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FileHandler {
+public class FileHandlerClient {
 
 
     Socket socket;
-    FileHandler(Socket socket){
+    FileHandlerClient(Socket socket){
         this.socket = socket;
     }
 
@@ -25,16 +25,23 @@ public class FileHandler {
         System.out.println("Записываем его в поток");
         FileInputStream fileInput = new FileInputStream(path);
 
-        Path filelocation = Paths.get(path);
-        byte[] data = Files.readAllBytes(filelocation);
+        Path file = Paths.get(path);
+        byte[] data = Files.readAllBytes(file);
+
+        byte[] fileNameBytes = String.valueOf(file.getFileName()).getBytes();
+        byte[] fileNameLengthBytes = ByteBuffer.allocate(4).putInt(fileNameBytes.length).array();
+
         ByteBuffer in = ByteBuffer.wrap(data);
-        int dataLength = data.length;
+        int dataLength = fileNameLengthBytes.length + fileNameBytes.length + data.length;
         out.writeByte(Command.START_MSG);
         System.out.println("Отправляем команду START_MSG " + Command.START_MSG);
         out.writeByte(Command.FILE_UPLOAD);
         System.out.println("Отправляем команду FILE_UPLOAD " + Command.FILE_UPLOAD);
         out.writeInt(dataLength); //как узнать длину файла?
         System.out.println("Отправляем длину файла " + dataLength);
+        //необходимо отправить длину имени файла и его имя.
+        out.write(fileNameLengthBytes);
+        out.write(fileNameBytes);
         out.write(data);
 /*
         byte [] buffer = new byte[1018];
