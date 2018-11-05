@@ -14,8 +14,8 @@ public final class Command {
     public static final short REGISTER = 9;
 //handel files
 public static final byte FILE_UPLOAD = 10;
-    public static final short FILE_DOWNLOAD = 11;
-    public static final short FILE_GET_LIST = 12;
+    public static final byte FILE_DOWNLOAD = 11;
+    public static final byte FILE_GET_LIST = 12;
     public static final short FILE_DELETE_FILE = 13;
 
 //handle cloud

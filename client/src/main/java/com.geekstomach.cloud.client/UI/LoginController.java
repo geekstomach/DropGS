@@ -1,5 +1,6 @@
 package com.geekstomach.cloud.client.UI;
 
+
 import com.geekstomach.cloud.client.utils.Client;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -13,45 +14,63 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
+
 
 public class LoginController {
     @FXML
     public JFXButton loginButton;
+
+    public JFXTextField getUsername() {
+        return username;
+    }
+
+    public JFXPasswordField getPassword() {
+        return password;
+    }
+
     @FXML
     private JFXTextField username;
 
     @FXML
     private JFXPasswordField password;
+
+    public javafx.scene.layout.AnchorPane getAnchorPane() {
+        return AnchorPane;
+    }
+
     @FXML
     private AnchorPane AnchorPane;
 
 Client client;
+
     public void handleLoginButtonAction(ActionEvent actionEvent) {
 //здесь по кнопке мы только проверяем правильность заполнения полей и
 // отправляем запрос на авторизаци
+
         if (username.getText().isEmpty()||password.getText().isEmpty()){
             showAlertWithoutHeaderText("Заполните поля username и password!");
 /*JFXDialog emptyFieldDialog = new JFXDialog(AnchorPane, new Label("Заполните поля username и password"),JFXDialog.DialogTransition.CENTER);
             emptyFieldDialog.show();*/
         } else {
-            try {
-                client.sendAuthMsg(client.getOut());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (username.getText().equals("admin")&&password.getText().equals("admin")){
-                //createMainWindow();
-                System.out.println("Пользователь с именем "+ username.getText() + " залогинился!");
-                ((Stage)AnchorPane.getScene().getWindow()).hide();//скрывает окно авторизации
-            } else {
-                showAlertWithoutHeaderText("Вы ввели неверное сочетание login и password");
-            }
+            System.out.println("Пробуем инициализировать пользоателя");
+            System.out.println(username.getText());
+            System.out.println(password.getText());
+            //client = new Client(username.getText(),password.getText());
+            Client.getInstance().setLogin(username.getText());
+            Client.getInstance().setPassword(password.getText());
+            username.clear();
+            password.clear();
+            Client.getInstance().initialize();
+
+            if (Client.getInstance().isAuthorized())
+                createMainWindow();
         }
     }
 
     public void handleCancelButtonAction(ActionEvent actionEvent) {
-        System.out.println("Пользователь с именем "+ username.getText() + " решил выйти(");
+        System.out.println("Пользователь решил выйти(");
         System.exit(0);
     }
 
@@ -66,6 +85,7 @@ Client client;
     }
 
     public void createMainWindow(){
+        System.out.println("создаем основное окно");
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainWindow.fxml"));
         Parent root = null;
@@ -77,6 +97,8 @@ Client client;
         mainWindowController mwc = (mainWindowController) loader.getController();
         stage.setTitle("StomachCloud Client : Main Window");
         stage.setScene(new Scene(root));
+        ((Stage)this.getAnchorPane().getScene().getWindow()).hide();//скрывает окно авторизации
         stage.show();
+        //здесь же надо заполнить поля файлов
     }
 }

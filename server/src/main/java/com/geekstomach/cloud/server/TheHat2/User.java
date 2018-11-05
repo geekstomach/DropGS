@@ -1,4 +1,4 @@
-package com.geekstomach.cloud.server;
+package com.geekstomach.cloud.server.TheHat2;
 
 import com.geekstomach.cloud.server.DB.DBService;
 

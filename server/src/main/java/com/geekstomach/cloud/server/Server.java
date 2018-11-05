@@ -68,6 +68,7 @@ public class Server {
                             ch.pipeline().addLast(
                                    // new ServerHandler());
                                     new ProtocolDecoder());
+
                                     //Из набора байтов преобразуем в объект (оба класса нужны для сериализации)
                                     //new ObjectDecoder(propMaxObjSize, ClassResolvers.cacheDisabled(null)),
                                    // new AuthGatewayHandler());
@@ -82,7 +83,7 @@ public class Server {
             что вы добавите больше обработчиков в конвейер и в конечном итоге извлеките этот анонимный класс
             В класс верхнего уровня.
 */
-                  //  .option(ChannelOption.SO_BACKLOG, 128)
+                  .option(ChannelOption.SO_BACKLOG, 128)
                     //.option(ChannelOption.AUTO_READ,true)
 /*
 

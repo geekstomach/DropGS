@@ -20,6 +20,7 @@ public class DBService {
         statement = connection.createStatement();
         System.out.println("База Подключена!");
     }
+
     public void addUser(String nick, String login, String password) {
 
         try {
@@ -74,6 +75,7 @@ public class DBService {
             disconnect();
         }
         return false;}
+
     // --------Закрытие--------
     public void disconnect(){
         try {
